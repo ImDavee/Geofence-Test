@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">geofenceApp</string>
+    <string name="add_geofences">Add GeoFences</string>
+    <string name="unknown_geofence_error">Unknown Geofence error</string>
+    <string name="geofence_not_available">Geofence not available</string>
+    <string name="geofence_too_many_geofences">Too many Geofences</string>
+    <string name="geofence_too_many_pending_intents">Too many pending Geofence intents</string>
+    <string name="geofence_transition_invalid_type">Geofence transition error: invalid transition type %1$d</string>
+    <string name="geofence_transition_entered">Entered</string>
+    <string name="geofence_transition_exited">Exited</string>
+    <string name="unknown_geofence_transition">Unknown</string>
 </resources>

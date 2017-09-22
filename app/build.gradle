@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "nl.ict_lab.a78703.geofenceapp"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -27,4 +27,11 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.google.android.gms:play-services-location:11.2.2'
+    compile 'com.google.android.gms:play-services-maps:11.2.2'
 }
