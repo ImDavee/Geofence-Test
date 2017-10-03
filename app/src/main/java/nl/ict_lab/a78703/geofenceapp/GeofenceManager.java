@@ -36,6 +36,10 @@ public class GeofenceManager
     private static String LONGITUDE_KEY = "longitude";
     private static String RADIUS_KEY = "radius";
 
+    /**
+     * Runs the GoogleApiClient builder.
+     * @param context Context connected with the MainActivity.
+     */
     public GeofenceManager(Context context)
     {
         this.context = context;
@@ -43,6 +47,10 @@ public class GeofenceManager
         googleApiClient.connect();
     }
 
+    /**
+     * Gets the geofence currently in the SharedPreferences.
+     * @returns the saved SharedPreference
+     */
     @Nullable
     public String getCurrentGeofence()
     {
@@ -50,10 +58,10 @@ public class GeofenceManager
     }
 
     /**
-     *
-     * @param geofenceLatitude
-     * @param geofenceLongitude
-     * @param geofenceRadius
+     * Builds and sets the geofence in the correct place using the latitude and longitude. Saves the parameters in a SharedPreferences.
+     * @param geofenceLatitude Latitude of the geofence
+     * @param geofenceLongitude Longitude of the geofence
+     * @param geofenceRadius Radius of the geofence in meters
      */
     public void setGeofence(double geofenceLatitude, double geofenceLongitude, float geofenceRadius)
     {
@@ -88,7 +96,7 @@ public class GeofenceManager
     }
 
     /**
-     *
+     * Removes the geofence currently saved in the sharedPreferences.
      */
     public void removeCurrentGeofence()
     {
@@ -101,6 +109,9 @@ public class GeofenceManager
                 .apply();
     }
 
+    /**
+     * Builds the GoogleApiClient.
+     */
     protected synchronized void buildGoogleApiClient()
     {
         googleApiClient = new GoogleApiClient.Builder(context)

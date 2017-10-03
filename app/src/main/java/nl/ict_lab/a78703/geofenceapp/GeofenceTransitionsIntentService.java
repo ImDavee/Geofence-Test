@@ -28,6 +28,10 @@ public class GeofenceTransitionsIntentService extends IntentService
         super(TAG);
     }
 
+    /**
+     * Sends notification when a geofence is entered.
+     * @param intent Displays everything on other activities.
+     */
     @Override
     protected void onHandleIntent(Intent intent)
     {
@@ -57,6 +61,12 @@ public class GeofenceTransitionsIntentService extends IntentService
         }
     }
 
+    /**
+     * Gets the transition details.
+     * @param geofenceTransition The transition that triggers a geofence.
+     * @param triggeringGeofences List of geofences which are triggered by a transition.
+     * @returns the name of the geofence which is triggered by a transition.
+     */
     private String getGeofenceTransitionDetails(int geofenceTransition, List<Geofence> triggeringGeofences)
     {
         String geofenceTransitionString = getTransitionString(geofenceTransition);
@@ -72,6 +82,11 @@ public class GeofenceTransitionsIntentService extends IntentService
         return geofenceTransitionString + ": " + triggeringGeofencesIdsString;
     }
 
+    /**
+     * Gets the string for the fitting transition.
+     * @param transitionType Type of transition.
+     * @returns a string for the fitting transition.
+     */
     private String getTransitionString(int transitionType)
     {
         switch (transitionType)
@@ -85,6 +100,10 @@ public class GeofenceTransitionsIntentService extends IntentService
         }
     }
 
+    /**
+     * Sends the built notification.
+     * @param notificationDetails Transition type + name of the triggered geofence.
+     */
     private void sendNotification(String notificationDetails)
     {
         Intent notificationIntent = GeofenceManager.makeNotificationIntent(getApplicationContext(), notificationDetails);
@@ -98,6 +117,12 @@ public class GeofenceTransitionsIntentService extends IntentService
         notificationManager.notify(GEOFENCE_NOTIFICATION_ID, createNotification(notificationDetails, notificationPendingIntent));
     }
 
+    /**
+     * Builds a notification.
+     * @param notificationDetails Transition type + name of the triggered geofence.
+     * @param notificationPendingIntent Displays everything on other activities.
+     * @returns the built notification.
+     */
     private Notification createNotification(String notificationDetails, PendingIntent notificationPendingIntent)
     {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this);
